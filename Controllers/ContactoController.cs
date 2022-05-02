@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using appejemplo2.Models;
+using appejemplo2.Data;
+
 
 namespace appejemplo2.Controllers
 {
     public class ContactoController: Controller
-    {
+    {   
         private readonly ILogger<ContactoController> _logger;
 
-    public ContactoController(ILogger<ContactoController> logger)
+        private readonly ApplicationDbContext _context;
+    public ContactoController(ApplicationDbContext context,ILogger<ContactoController> logger)
     {
+        _context = context;
         _logger = logger;
     }
 
@@ -19,8 +24,12 @@ namespace appejemplo2.Controllers
 
         return View();
     }
+    [HttpPost]
+      public IActionResult Create(Contacto objContacto){
 
-      public IActionResult Create(){
+        _context.Add(objContacto);
+        _context.SaveChanges();
+        ViewData["Message"]= "Se registro el contacto";  
         
         return View("Index");
     }
