@@ -2,6 +2,13 @@
     @{
     ViewData["Title"] = "Catalogo";
 }
+
+<form asp-controller="Catalogo" asp-action="Index">
+    <p>
+        nombre: <input type="text" name="searchString"><input type="submit" value="Buscar" />
+    </p>
+</form>
+
 <h1>@ViewData["Title"]</h1>
 <div class="container">
 <h1>@ViewData["Message"]</h1>
