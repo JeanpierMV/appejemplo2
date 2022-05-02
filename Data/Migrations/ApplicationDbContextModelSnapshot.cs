@@ -56,6 +56,48 @@ namespace appejemplo2.Data.Migrations
                     b.ToTable("t_contacto");
                 });
 
+            modelBuilder.Entity("appejemplo2.Models.Producto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Descripcion");
+
+                    b.Property<string>("ImagenName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ImagenName");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Name");
+
+                    b.Property<decimal>("PDescuento")
+                        .HasColumnType("numeric")
+                        .HasColumnName("PDescuento");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("numeric")
+                        .HasColumnName("Precio");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_producto");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
