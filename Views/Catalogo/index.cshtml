@@ -3,11 +3,14 @@
     ViewData["Title"] = "Catalogo";
 }
 
-<form asp-controller="Catalogo" asp-action="Index">
-    <p>
-        nombre: <input type="text" name="searchString"><input type="submit" value="Buscar" />
-    </p>
-</form>
+<br>
+
+
+<form class="input-group mb-3" asp-controller="Catalogo" asp-action="Index">
+      <input type="text" name="searchString" class="form-control" placeholder="Búsqueda" aria-label="Búsqueda" aria-describedby="button-addon2">
+      <button class="btn btn-primary" type="submit" id="button-addon2"><font style="vertical-align:inherit;"><font style="vertical-align:inherit;">Búsqueda</font></font></button>
+</form >
+
 
 <h1>@ViewData["Title"]</h1>
 <div class="container">
@@ -20,15 +23,15 @@
                     <div class="col-sm-4">
                         <div class="card-body">
                             <div class="card-img-actions">
-                                <img class="img-responsive" width="96" height="150" src="/images/@item.ImagenName" alt="@item.ImagenName"/>
+                                <img class="img-responsive" width="200" height="250" src="/images/@item.ImagenName" alt="@item.ImagenName"/>
                             
                             </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Precio)</p>
-                            <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Add</a>
-                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View</a>
+                            <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Añadir</a>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Ver</a>
 
                         </div>
                     </div>
@@ -42,3 +45,6 @@
 
 </div>
 </div>
+<br>
+<br>
+<br>

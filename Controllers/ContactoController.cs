@@ -28,7 +28,7 @@ namespace appejemplo2.Controllers
 
             _context.Add(objContacto);
             _context.SaveChanges();
-            ViewData["Message"]= "Se registro el contacto";  
+            ViewData["Message"]= "Gracias por contactarnos";  
         
             return View("Index");
         }
