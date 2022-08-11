@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using appejemplo2.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using appejemplo2.Integration.Sengrid;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,15 +13,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<SendMailIntegration>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())  
 {
-    app.UseMigrationsEndPoint();
+    app.UseMigrationsEndPoint(); 
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 else
 {

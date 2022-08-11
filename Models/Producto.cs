@@ -14,17 +14,17 @@ namespace appejemplo2.Models
     [Column("id")]
         public int Id {get;set;}
     [Column("Name")]
-        public string Name { get; set; }
+        public String Name { get; set; }
     [Column("Precio")]
         public Decimal Precio { get; set; }
     [Column("Descripcion")]
-        public string Descripcion { get; set; }
+        public String Descripcion { get; set; }
     [Column("PDescuento")]
          public Decimal PDescuento { get; set; }
     [Column("ImagenName")]
-         public string ImagenName { get; set; }
+         public String ImagenName { get; set; }
     [Column("Status")]
-         public string Status { get; set; }
+         public String Status { get; set; }
 
     }
 }
